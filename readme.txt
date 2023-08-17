@@ -1,0 +1,1 @@
+One can generate data by data/sumo_files/visualdatagen.py
