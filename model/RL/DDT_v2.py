@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# @Time : 2023/5/10 9:30
-# @Author : Xiao Han
-# @E-mail : hahahenha@gmail.com
+# @Time : 2024/5/10 9:30
+# @Author : Anonymous
+# @E-mail : anonymous@gmail.com
 # @Site : 
 # @project: vehicle_dispatch
-# @File : DDT_v2.py
+# @File : DDT.py
 # @Software: PyCharm
 
 import torch
@@ -75,7 +75,7 @@ class DDT(nn.Module):
             (returns_embeddings, state_embeddings), dim=1
         ).permute(0, 2, 1, 3).reshape(batch_size, 2 * seq_length, self.hidden_size)
         stacked_inputs = self.embed_ln(stacked_inputs)
-        # print('DDT stacked_inputs shape:', stacked_inputs.shape)
+        print('DDT stacked_inputs shape:', stacked_inputs.shape)
 
         # to make the attention mask fit the stacked inputs, have to stack it as well
         # stacked_attention_mask = torch.stack(
@@ -84,7 +84,7 @@ class DDT(nn.Module):
         stacked_attention_mask = torch.stack(
             (attention_mask, attention_mask), dim=1
         ).permute(0, 2, 1).reshape(batch_size, 2 * seq_length)
-        # print('DDT stacked_attention_mask shape:', stacked_attention_mask.shape)
+        print('DDT stacked_attention_mask shape:', stacked_attention_mask.shape)
 
         # we feed in the input embeddings (not word indices as in NLP) to the model
         transformer_outputs = self.transformer(

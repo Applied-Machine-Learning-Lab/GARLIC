@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time : 2023/4/3 16:09
-# @Author : Xiao Han
-# @E-mail : hahahenha@gmail.com
+# @Time : 2024/4/3 16:09
+# @Author : Anonymous
+# @E-mail : anonymous@gmail.com
 # @Site : 
 # @project: vehicle_dispatch
 # @File : train_utils.py

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time : 2023/3/21 9:48
-# @Author : Xiao Han
-# @E-mail : hahahenha@gmail.com
+# @Time : 2024/3/21 9:48
+# @Author : Anonymous
+# @E-mail : anonymous@gmail.com
 # @Site : 
 # @project: vehicle_dispatch
 # @File : sumo_utils.py
@@ -46,7 +46,8 @@ class Controller(object):
         self.geohash = Geohash()
         time_s_str = args.start_time.split(':')
         self.start_t = int(int(time_s_str[0]) * 3600 + int(time_s_str[1]) * 60 + int(time_s_str[2]))
-        self._rebalanceModel = RebalanceModel()
+        # self._model = Model2(1, 0.1, 2000)# 决策模型对象
+        self._rebalanceModel = RebalanceModel() #TODO:change method
         self._dispatchModel = DispatchModel()   #TODO:change method
         self._predictor = PerfectPred(self.args) #TODO:change method
         self._rebalanceWindowRVCnt = 0
@@ -444,8 +445,8 @@ class Controller(object):
         PoolingTaskInfo.stepFinish()
         return 0
 
-    def _predictDemand(self, now, timeSpan, demand) -> dict:
-        pred = self._predictor.getPrediction(now, timeSpan, demand)
+    def _predictDemand(self, now, timeSpan) -> dict:
+        pred = self._predictor.getPrediction(now, timeSpan)
         # result = dict.fromkeys(self._centralEdges.keys(), 0)
         # for key in result.keys():
         #     if key in pred.keys():
@@ -560,7 +561,7 @@ class Controller(object):
         if now % self.args.rebalance_time == 0:
             self._rebalanceWindowRVCnt = 0
             ### 计算Cij
-            pre_value = self._predictDemand(now, self.args.pred_time, nowVehDic)
+            pre_value = self._predictDemand(now, self.args.pred_time)
             self._regionalCosts = {}
             # 初始化_rebalanceLenRank
             self._rebalanceLenRank = {}
@@ -1097,6 +1098,8 @@ class PoolingTaskInfo(EnrouteInfo):
     # 同时负责bookkeeping和执行接口的调用
     @staticmethod
     def changeTaskQ(resObj, vID, pickupInsertPos=0, dropoffInsertPos=0) -> bool:
+        if vID == 'TAXI27':
+            AAA = 0
         PoolingTaskInfo._lockTaskCache.w_acquire()
         try:
             if vID in PoolingTaskInfo._poolingRecords:

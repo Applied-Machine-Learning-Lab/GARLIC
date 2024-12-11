@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time : 2023/3/21 11:24
-# @Author : Xiao Han
-# @E-mail : hahahenha@gmail.com
+# @Time : 2024/3/21 11:24
+# @Author : Anonymous
+# @E-mail : anonymous@gmail.com
 # @Site : 
 # @project: vehicle_dispatch
 # @File : perfectpredict.py
@@ -30,7 +30,7 @@ class PerfectPred(object):
         self.dataWGS84 = geodata.to_crs('EPSG:4326')
         del geodata
 
-    def getPrediction(self, now, span, demand):
+    def getPrediction(self, now, span):
         span = now + span
         df = self.data.loc[(self.data['pickup_datetime'] >= now) & (self.data['pickup_datetime'] < span)]
         point_list = [Point(df.pickup_longitude[i], df.pickup_latitude[i]) for i in df.index.values]

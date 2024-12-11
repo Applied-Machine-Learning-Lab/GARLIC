@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time : 2023/3/21 14:10
-# @Author : Xiao Han
-# @E-mail : hahahenha@gmail.com
+# @Time : 2024/3/21 14:10
+# @Author : Anonymous
+# @E-mail : anonymous@gmail.com
 # @Site : 
 # @project: vehicle_dispatch
 # @File : greedyclosest.py

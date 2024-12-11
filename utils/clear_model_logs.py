@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# @Time : 2023/4/19 14:32
-# @Author : Xiao Han
-# @E-mail : hahahenha@gmail.com
+# @Time : 2024/4/19 14:32
+# @Author : Anonymous
+# @E-mail : anonymous@gmail.com
 # @Site : 
 # @project: vehicle_dispatch
 # @File : clear_model_logs.py
