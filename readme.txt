@@ -1,1 +1,3 @@
-One can generate data by data/sumo_files/visualdatagen.py
+This is a simplified version of the code with a complete process for reviewing only. When expanding the experiment to the Hangzhou dataset, the parameters of the GPT model we used are larger. We will publish the rest of the code after the paper is accepted.
+
+In addition, once the paper is accepted, we would like to share our data exclusively through academic collaboration due to copyright limitations.

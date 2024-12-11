@@ -21,7 +21,7 @@ config_args = {
         'warm-steps':(1000,''),
     },
     'training_config':{
-        'epochs': (10000, 'maximum number of epochs to train for'),
+        'epochs': (100, 'maximum number of epochs to train for'),
         'update-freq':(5, 'number of epochs update reward function & graph embedding'),
         'batch-size':(64, 'batch size'),
         'balance':(True, 'Ensure supply and demand balance'),
@@ -43,7 +43,7 @@ config_args = {
     'environment_config':{
         'start-time': ("17:00:00", 'data start time'),
         'end-time': ("21:00:00", 'data end time'),
-        'taxi-size':(500, 'number of taxis')
+        'taxi-size':(75, 'number of taxis')
     },
     'sumo_config': {
         'nogui':(False, 'run the commandline version of sumo'),
@@ -67,9 +67,9 @@ config_args = {
         'south-lat':(30.133, 'south boundary of the road network'),
         'east-lon':(120.301, 'south boundary of the road network'),
         'west-lon':(120.071, 'south boundary of the road network'),
-        'hg2_radius':(1000, 'meter'),
-        'hg5_radius':(2000, 'meter'),
-        'hg10_radius':(5000, 'meter'),
+        'hg2_radius':(5000, 'meter'),
+        'hg5_radius':(10000, 'meter'),
+        'hg10_radius':(2000, 'meter'),
         'city':('hangzhou', ''),
         'hg2-zones-shp':("data/taxi_zones/hg2/hg2.shp",''),
         'hg5-zones-shp':("data/taxi_zones/hg5/hg5.shp",''),
